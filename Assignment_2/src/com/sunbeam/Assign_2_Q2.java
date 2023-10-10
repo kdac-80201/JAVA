@@ -51,7 +51,6 @@ class Employee{
 		if(sc.nextDouble() < 0) {
 			this.monthlySal =  0.0;
 		}
-			
 	}
 	
 	void display() {
