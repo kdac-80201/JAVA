@@ -1,26 +1,28 @@
 import java.util.Scanner;
 
-public class Assign_1_Q2 {
+public class Datatype_check {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		
-		Scanner sc = new Scanner(System.in);
-		
-		System.out.println("Enter first value: ");
-		double first = sc.nextDouble();
-		System.out.println("Enter Second value: ");
-		double second = sc.nextDouble();
-		
-		
-		if(first%1 != 0 && second%1 != 0) {
-			System.out.println("Average of two doubles is: "+((first+second)/2));
-		}
-		else
-			System.out.println("Please enter double values. PROGRAM TERMINATED! ");
-		
-		sc.close();
-		
-	}
+        System.out.print("Enter the first input : ");
+        if (scanner.hasNextDouble() && !(scanner.hasNextInt())) {
+            double a = scanner.nextDouble();
 
+            System.out.print("Enter the second input : ");
+            if (scanner.hasNextDouble() && !(scanner.hasNextInt())) {
+                double b = scanner.nextDouble();
+
+                // Calculate the average
+                double avg = (a + b) / 2;
+
+                System.out.println("Average: " + avg);
+            } else {
+                System.out.println("The second input is not a double.");
+            }
+        } else {
+            System.out.println("The first input is not a double.");
+        }
+
+        scanner.close();
+    }
 }
