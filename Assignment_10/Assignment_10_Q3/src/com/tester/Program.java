@@ -11,12 +11,13 @@ public class Program {
 	static Scanner sc = new Scanner(System.in);
 	public static int menu() {
 		int choice;
-		System.out.println("******************");
+		System.out.println("********Employee********");
 		System.out.println("0. Exit ");
 		System.out.println("1. Add ");
 		System.out.println("2. Delete ");
 		System.out.println("3. Find ");
 		System.out.println("4. Sort ");
+		System.out.println("5. Edit ");
 		System.out.println("Enter your choice ");
 		choice = sc.nextInt();
 		return choice;
@@ -73,9 +74,7 @@ public class Program {
 						return diff;
 					}
 				}
-				
 				Findsort f = new Findsort();
-				
 				
 				Collections.sort(e,f);
 				
@@ -83,8 +82,28 @@ public class Program {
 					System.out.println(ele);
 				
 				break;
-
+				
+			case 5:
+				System.out.println("Enter emp id to be modified: ");
+				int id11 = sc.nextInt();
+				Employee key1 = new Employee();
+				
+				key1.setEmpid(id11);
+				int index = e.indexOf(key1);
+				if(index == -1)
+				System.out.println("Employee not found.");
+				else {
+				Employee oldEmp = e.get(index);
+				System.out.println("Employee Found: " + oldEmp);
+				System.out.println("Enter new information for the Employee");
+				Employee newEmp = new Employee();
+				newEmp.accept();
+				e.set(index, newEmp);
+				}
+				break;
+				
 			default:
+				System.out.println("Invalid entry ");
 				break;
 			}
 		 }
