@@ -1,9 +1,8 @@
 package com.library;
 
-import java.util.Comparator;
 import java.util.Scanner;
 
-public class Library implements Comparator<Library>{
+public class Library{
 	String isbn;
 	double price;
 	String authorName;
@@ -66,19 +65,25 @@ public class Library implements Comparator<Library>{
 				+ "]";
 	}
 	
-	@Override
-	public int compare(Library l1, Library l2) {
-		int diff = - Double.compare(l1.getPrice(), l2.getPrice());
-		return diff;
-	}
+//	@Override
+//	public int compare(Library l1, Library l2) {
+//		int diff = - Double.compare(l1.getPrice(), l2.getPrice());
+//		return diff;
+//	} // in comparator don't use this type its because we
 	
 	@Override
 	public boolean equals(Object obj) {
-		Library other =(Library) obj;
-		if(this.isbn.equals(other.isbn)) {
-			return true;	
+		if(obj == null)
+			return false;
+		if(this == obj)
+			return true;
+		if(obj instanceof Library) {
+			Library other =(Library) obj;
+			if(this.isbn.equals(other.isbn)) 
+				return true;	
 		}
 		return false;
+		
 	}
 	
 	

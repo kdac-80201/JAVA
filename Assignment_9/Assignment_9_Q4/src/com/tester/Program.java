@@ -66,6 +66,7 @@ public class Program {
 				System.out.print("Size: "+list.size());
 				break;
 			case 7:
+				
 				class PriceComparator implements Comparator<Library>{
 							
 					public int compare(Library l1, Library l2) {
